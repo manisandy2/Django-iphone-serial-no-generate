@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-inverse">
+        <tr>
+            <th>MPN</th>
+            <th>INGRAM CODE</th>
+            <th>APX MODEL</th>
+            <th>BRAND</th>
+            <th>PRODUCT</th>
+            <th>ITEM CODE</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for fm in form %}
+        <tr>
+            <td>{{fm.mpn}}</td>
+            <td>{{fm.ingram_code}}</td>
+            <td>{{fm.apx_model}}</td>
+            <td>{{fm.brand}}</td>
+            <td>{{fm.product}}</td>
+            <td>{{fm.item_code}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock content %}

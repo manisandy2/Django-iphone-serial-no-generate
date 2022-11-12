@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="alert alert-primary text-center">
+    <h2>SERIAL NUMBER GENERATE</h2>
+    <h4>{{request.user}}</h4>
+</div>
+{% if plf %}
+<div class="container-fluid">
+    <form action="" method="post">{% csrf_token %}
+        <div class="row">
+            <div class="col-2">
+                {{plf.list_of_name}}
+            </div>
+            <div class="col-2">
+                {{plf.list_of_code}}
+            </div>
+            <div class="col-2">
+                {{plf.list_of_range}}
+            </div>
+            <div class="col-2">
+                {{plf.name_invoice_create}}
+            </div>
+            <div class="col-2">
+                {{plf.invoice}}
+            </div>
+            <div class="col">
+                <input type="submit" class="btn btn-primary" value="Generate">
+            </div>
+        </div>
+    </form>
+</div>
+
+{% else %}
+<input type="submit" class="btn btn-primary" onclick="exportTableToCSV('serial.csv')" value="Export To csv" >
+<div class="container-fluid">
+    <table class="table table-fixed table-striped table-hover" id="generatetable">
+        <thead>
+            <tr>
+                <th>USER</th>
+                <th>SERIAL</th>
+                <th>MODEL</th>
+                <th>INGRAM CODE</th>
+                <th>ITEM CODE</th>
+                <th>MPN</th>
+                <th>BRAND</th>
+                <th>PRODUCT</th>
+                <th>RANGE</th>
+                <th>SEARCH CODE</th>
+                <th>ITEM CODE</th>
+                <th>CREATE NAME</th>
+                <th>INVOICE</th>
+                <th>DATE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in pl reversed %}
+            <tr>
+                <td scope="row">{{r.name}}</td>
+                <td>{{r.serial}}</td>
+                <td>{{ gs.apx_model }}</td>
+                <td>{{ gs.ingram_code }}</td>
+                <td>{{ gs.item_code }}</td>
+                <td>{{ gs.mpn }}</td>
+                <td>{{ gs.brand }}</td>
+                <td>{{ gs.product }}</td>
+                <td>{{r.list_of_range}}</td>
+                <td>{{r.list_of_name}}</td>
+                <td>{{r.list_of_itemcode}}</td>
+                <td>{{r.name_invoice_create}}</td>
+                <td>{{r.invoice}}</td>
+                <td>{{r.date}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock content %}

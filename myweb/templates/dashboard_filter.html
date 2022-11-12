@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+  <div class="container-fluid">
+    <div class="col">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>MPN</th>
+                    <th>INGRAM CODE</th>
+                    <th>ITEM CODE</th>
+                    <th>MODEL</th>
+                    <th>BRAND</th>
+                    <th>PRODUCT</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for g in gs %}
+                <tr>
+                    <td>{{g.mpn}}</td>
+                    <td>{{g.ingram_code}}</td>
+                    <td>{{g.item_code}}</td>
+                    <td>{{g.apx_model}}</td>
+                    <td>{{g.brand}}</td>
+                    <td>{{g.product}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+  </div>
+    
+    
+        
+        
+        
+        
+        
+        
+    
+
+{% endblock content %}

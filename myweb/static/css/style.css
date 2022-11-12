@@ -1,0 +1,51 @@
+.table-fixed{
+    display: block;
+    height: 500px;
+    overflow-y: auto;
+}
+
+body{
+    background: rgb(240, 213, 188);
+}
+
+.alert-primary{
+    background: orange;   
+}
+
+.sidenav{
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 55px;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 60px;
+}
+
+.sidenav a{
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+.sidenav a:hover{
+    color: #f1f1f1;
+}
+
+
+
+#main {
+    margin-left: 160px;
+    font-size: 28px;
+    padding: 20px;
+}
+
+@media screen and (max-height: 450px){
+    .sidenav{padding-top: 15px;}
+    .sidenav a{font-size: 18px;}
+}
+    
