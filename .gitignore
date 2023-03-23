@@ -1,7 +1,6 @@
 .idea
 venv/
 main.py
-myweb/db.sqlite3
 .vscode/
 **/__pycache__/
 **/migrations/
